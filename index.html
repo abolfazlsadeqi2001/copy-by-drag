@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8" />
+
+<meta name="author" content="abolfazlsadeqi2001" />
+<meta name="description" content="some tests" />
+<meta name="keywords" content="test" />
+<meta name="view-port" content="width=device-width,initiale-scale=1.0" />
+
+<script>
+	function drag(ev, element) {
+		ev.dataTransfer.setData("text", element.innerHTML);
+	}
+
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+
+	function drop(element, event) {
+		element.innerHTML = event.dataTransfer.getData("text");
+	}
+</script>
+</head>
+<body>
+	<p style="background-color: lime; color: black;" draggable="true" ondragstart="drag(event,this)">hello</p>
+	<div ondrop="drop(this,event);" style="background: tomato; color: black;" dropzone="true" ondragover="allowDrop(event)">
+		drop<br> area<br> for<br> paragraph
+	</div>
+</body>
+</html>
